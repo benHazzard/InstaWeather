@@ -79,20 +79,21 @@ class CreateImage:
         txt = Image.new('RGBA', base.size, (255,255,255,0))
 
         #----------IMAGE 2-----------
+	#UPDATE IMAGES
         imageLocation = 'Weather-Images/Image2.png'
 
         if(self.weatherReport[0].get('condition', '') == 'Cloudy'):
             imageLocation = 'Weather-Images/Cloudy.png'
         elif(self.weatherReport[0].get('condition', '') == 'Sunny'):
-            imageLocation = 'Weather-Images/Sunny.png'
+            imageLocation = 'Weather-Images/Cloudy.png'
         elif(self.weatherReport[0].get('condition', '') == 'Rainy'):
-            imageLocation = 'Weather-Images/Rainy.png'
+            imageLocation = 'Weather-Images/Cloudy.png'
         
         conditionImage = Image.open(imageLocation).convert('RGBA')
 
-        #----------STYLE------------
+        #----------STYLE-----------
 
-        fnt = ImageFont.truetype('Comfortaa-Regular',30)
+        fnt = ImageFont.truetype("Fonts/Comfortaa-Regular.ttf",30)
 
         fillBlack = (255,255,255,255)
         #---------DRAW TEXT---------
@@ -128,6 +129,8 @@ class CreateImage:
         #-------CONVERT/ SAVE IMAGE---------
 
         out = Image.alpha_composite(base, txt)
+
+	
         
         fileName = 'currentWeather-'+self.timeCurrent+'.png'
         try:
