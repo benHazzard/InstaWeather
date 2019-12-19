@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -14,7 +14,11 @@ class GetWeather:
     def weatherCom(self):
         horlyweather = []
 
-        html = urlopen("https://weather.com/weather/hourbyhour/l/05401:4:US")
+        hdr = {'User-Agent': 'Mozilla/5.0'}
+
+        req = Request("https://weather.com/weather/hourbyhour/l/05401:4:US", headers=hdr)
+
+        html = urlopen(req)
 
         soup = BeautifulSoup(html, 'lxml')
 
