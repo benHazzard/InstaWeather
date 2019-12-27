@@ -20,7 +20,7 @@ InstaWeather is currently available in the following locations.
 
 | Location | Link to Page |
 | ------ | ------ |
-| Burlington, VT | [https://www.instagram.com/instaweather_btv/][PlDb] |
+| Burlington, VT | https://www.instagram.com/instaweather_btv/
 
 License
 ----
