@@ -4,7 +4,10 @@ import _createImage as CreateImageFile
 import _S3BucketUpload as S3BucketUploadFile
 import _instagramUpload as InstagramUploadFile
 
-def main():
+#-----------JOB SCHEDULER------------------
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+def job_1():
     try:
         weather = list(GetWeatherDataFile.GetWeather().wunderground())
     except:
@@ -18,5 +21,10 @@ def main():
     
     postImage.postImage()
     
+
+def main():
+    scheduler = BlockingScheduler()
+    scheduler.add_job(job_1, 'interval', hours=1)
+    scheduler.start()
 if __name__ == "__main__":
     main()

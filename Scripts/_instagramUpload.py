@@ -9,6 +9,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 import time
 
+import random
+
 import os
 
 from sys import platform
@@ -55,7 +57,7 @@ class InstagramUpload:
         
         driver.get("https://www.instagram.com")
 
-        time.sleep(5)
+        time.sleep(random.randint(5,10))
 
         # -*- Clicking login button on instagram homepage -*-
         driver.find_element_by_xpath("//button[contains(text(),'Log In')]").click()
@@ -63,7 +65,7 @@ class InstagramUpload:
         print('----------LOGIN BUTTON SELECTED-----------')
         print('Waiting for page to load...')
 
-        time.sleep(5)
+        time.sleep(random.randint(5,10))
 
         # -*- Finding username/ password boxes and inputting data respectively -*-
         inputElementName = driver.find_element_by_xpath("//input[contains(@name,'username')]")
@@ -79,13 +81,13 @@ class InstagramUpload:
 
         print('----------LOGIN SUCCESSFUL-----------')
         print('Waiting for page to load...')
-        time.sleep(5)
+        time.sleep(random.randint(5,10))
 
         try:
             driver.find_element_by_xpath("//button[contains(@class,'GAMXX')]").click()
             print('----------EXTRA POPUP FOUND AND ADVOIDED-----------')
             print('Waiting for page to load...')
-            time.sleep(5)
+            time.sleep(random.randint(5,10))
         except:
             print('--------EXTRA POPUP NOT FOUND--------')
             
@@ -93,7 +95,7 @@ class InstagramUpload:
             driver.find_element_by_xpath("//button[contains(@class,'aOOlW   HoLwm')]").click()
             print('----------EXTRA POPUP FOUND AND ADVOIDED-----------')
             print('Waiting for page to load...')
-            time.sleep(5)
+            time.sleep(random.randint(5,10))
         except:
             print('--------EXTRA POPUP NOT FOUND--------')
         # -*- exiting popup -*-
@@ -101,7 +103,7 @@ class InstagramUpload:
             driver.find_element_by_css_selector("body:nth-child(2) div:nth-child(1) div.HpHcz div:nth-child(3) > a._3m3RQ._7XMpj").click()
             print('----------POPUP IGNORED-----------')
             print('Waiting for page to load...')
-            time.sleep(2)
+            time.sleep(random.randint(5,10))
         except:
             print('--------POPUP NOT FOUND--------')
         
@@ -112,37 +114,37 @@ class InstagramUpload:
             print('----------POPUP IGNORED-----------')
             print('Waiting for page to load...')
 
-            time.sleep(5)
+            time.sleep(random.randint(5,10))
         except:
             print('--------POPUP NOT FOUND--------')
 
 
         # -*- removing old post -*-
         driver.find_element_by_xpath("//div[5]//a[1]").click()
-        time.sleep(5)
+        time.sleep(random.randint(5,10))
         driver.find_element_by_xpath("//body//div[contains(@class,'_2z6nI')]//div//div//div[1]//div[1]//a[1]//div[1]//div[2]").click()
-        time.sleep(5)
+        time.sleep(random.randint(5,10))
         driver.find_element_by_xpath("//span[contains(@class,'glyphsSpriteMore_horizontal__outline__24__grey_9 u-__7')]").click()
-        time.sleep(5)
+        time.sleep(random.randint(5,10))
         driver.find_element_by_xpath("//button[contains(text(),'Delete')]").click()
-        time.sleep(5)
+        time.sleep(random.randint(5,10))
         driver.find_element_by_xpath("//button[contains(text(),'Delete')]").click()
-        time.sleep(5)
+        time.sleep(random.randint(5,10))
             
 
         # -*- uploading local image to story -*-
         element = driver.find_element_by_xpath("//div[@class='q02Nz _0TPg']").click()
-        time.sleep(1.5)
+        time.sleep(random.randint(1,3))
         autoit.win_active("Open") #open can change by your os language if not open change that
-        time.sleep(2)
+        time.sleep(random.randint(2,5))
         autoit.control_send("Open", "Edit1", os.getcwd()+ self.fileName)
-        time.sleep(1.5)
+        time.sleep(random.randint(1,3))
         autoit.control_send("Open", "Edit1", "{ENTER}")
 
         print('----------FILE UPLOADED SUCCESSFULY-----------')
         print('Waiting for page to load...')
         
-        time.sleep(2)
+        time.sleep(random.randint(2,5))
 
         driver.find_element_by_xpath("//span[@class='Szr5J createSpriteExpand']").click()
 
@@ -151,7 +153,7 @@ class InstagramUpload:
         print('----------FILE SUBMITTED-----------')
         print('Waiting for page to load...')
 
-        time.sleep(2)
+        time.sleep(random.randint(2,5))
         
         driver.find_element_by_xpath("//button[@class='UP43G']").click()
         print('----------FILE POSTED SUCCESSFULLY-----------')

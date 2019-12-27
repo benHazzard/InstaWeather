@@ -96,7 +96,9 @@ class CreateImage:
         try:
             new_out = out.resize((1080, 1350))
             new_out.save(fileName, 'png')
-            new_out.show()
         except:
             print("Error Saving: ", out)
         return fileName
+
+    def removeFile(self, fileName):
+        os.remove(fileName)
