@@ -18,6 +18,10 @@ from sys import platform
 from UserInfo import username, password
 
 
+#String imports
+import Strings
+
+
 #========CLASS TAKES IN THE IMAGE NAME AND UPLOADS IT TO INSTAGRAM===========
 class InstagramUpload:
     """
@@ -148,13 +152,22 @@ class InstagramUpload:
 
         driver.find_element_by_xpath("//span[@class='Szr5J createSpriteExpand']").click()
 
-        driver.find_element_by_xpath("//button[@class='UP43G']").click()
-
         print('----------FILE SUBMITTED-----------')
         print('Waiting for page to load...')
 
         time.sleep(random.randint(2,5))
-        
+        driver.find_element_by_xpath("//button[@class='UP43G']").click()
+        #Adding location
+        time.sleep(random.randint(2,5))
+        driver.find_element_by_xpath("//section[2]//button[1]").click()
+        time.sleep(random.randint(2,5))
+        driver.find_element_by_xpath("//input[@placeholder='Find a location']").send_keys(Strings.burlington)
+        time.sleep(random.randint(2,5))
+        driver.find_element_by_xpath("//div[contains(@class,'BYCcJ')]//button[1]").click()
+        time.sleep(random.randint(2,5))
+        #Adding caption
+        time.sleep(random.randint(2,5))
+        driver.find_element_by_xpath("//textarea[@placeholder='Write a caption…']").send_keys(Strings.caption)
         driver.find_element_by_xpath("//button[@class='UP43G']").click()
         print('----------FILE POSTED SUCCESSFULLY-----------')
     
